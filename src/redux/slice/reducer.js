@@ -6,7 +6,7 @@ const initialState = [
 ]
 
 export const ContactSlice = createSlice({
-    name: 'contacts',
+    name: 'reducer',
     initialState,
     reducers: {
         deleteContact: (state, action) => {

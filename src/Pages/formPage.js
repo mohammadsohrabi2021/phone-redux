@@ -1,11 +1,11 @@
 import React from 'react';
-import FormInputs from '../Componenets/Form/FormInputs';
+import FormInput from '../Componenets/Form/FormInput';
 
 
 function formPage() {
     return (
         <div>
-           <FormInputs/>
+           <FormInput/>
         </div>
     );
 }

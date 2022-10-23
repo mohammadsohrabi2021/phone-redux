@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { addContact, updateContact } from '../../redux/slice/reducer';
-function FormInputs() {
-    const contacts = useSelector(state => state.contacts)
+function FormInput() {
+    const contacts = useSelector(state => state.reducer)
+    console.log(contacts);
     const { ContactId } = useParams()
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -43,12 +44,10 @@ function FormInputs() {
 
     return (
         <div>
-           <form >
+           <form onSubmit={handleSubmit}>
               <div>
                 {FormInputs.map(FormInput =>(
-                    <div key={FormInput.id}  onChange={handleChange} required name={FormInput.name} value={form[FormInput.name]} label={FormInput.label}>
-                        
-                    </div>
+                    <input key={FormInput.id}  onChange={handleChange} required name={FormInput.name} value={form[FormInput.name]} />
                 ))}
               </div>
               <div>
@@ -61,4 +60,4 @@ function FormInputs() {
     );
 }
 
-export default FormInputs;
+export default FormInput;

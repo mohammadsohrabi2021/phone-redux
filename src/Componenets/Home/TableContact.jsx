@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import TableRow from './TableRow';
 function TableContact() {
-    const contacts =useSelector(state => state.contacts)
+    const contacts =useSelector(state => state.reducer)
     return (
         <div>
             {contacts.map(contact =>(

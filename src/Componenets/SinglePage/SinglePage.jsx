@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import SinglePageData from '../../Data/SinglePageData/SinglePageData';
 function SinglePage() {
-    const contacts = useSelector(state => state.contacts)
+    const contacts = useSelector(state => state.reducer)
     const { ContactId } = useParams()
     const [contact, setContact] = useState({})
 
