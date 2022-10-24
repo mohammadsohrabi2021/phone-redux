@@ -1,6 +1,6 @@
  const SingleContactData = [
     {id: 1, name: 'id'},
-    {id: 2, name: 'name'},
+    {id: 2, name: 'name',title:'name'},
     {id: 3, name: 'lastName'},
     {id: 4, name: 'phone'},
     {id: 5, name: 'age'},
