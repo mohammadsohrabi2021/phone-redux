@@ -50,12 +50,12 @@ function FormInput() {
     return (
         <Grid>
             <form onSubmit={handleSubmit}>
-                <Grid  container style={{flexDirection: 'column' }}  justifyContent={'space-around'} alignItems={'center'} height={300} mt={5} >
+                <Grid  container style={{flexDirection: 'column' }}  justifyContent={'space-around'} alignItems={{xs:'center',sm:'initial'}} height={400} mt={5} >
                     {FormInputs.map(FormInput => (
                         <TextField  my={2} variant="filled" key={FormInput.id}  onChange={handleChange} required name={FormInput.name} value={form[FormInput.name]} label={FormInput.name} />
                     ))}
                 </Grid>
-                <Grid container justifyContent={'center'} alignItems={'center'} >
+                <Grid mt={2} container justifyContent={'center'} alignItems={'center'} >
                     <Button variant="outlined" endIcon={<SaveRoundedIcon/>}  type='submit'>
                        submit
                     </Button>
