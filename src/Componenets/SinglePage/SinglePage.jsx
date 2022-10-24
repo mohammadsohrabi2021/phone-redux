@@ -9,6 +9,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/slice/reducer';
+import './SinglePage.css'
 function SinglePage() {
     const contacts = useSelector(state => state.reducer)
     const { ContactId } = useParams()
@@ -22,27 +23,32 @@ function SinglePage() {
     const handleDelete = id => {
         dispatch(deleteContact(id))
     }
+
     return (
-        <Grid>
-            <Grid container justifyContent={'center'} alignItems={'center'} p={5} bgcolor={'red'}>
-                {SinglePageData.map(show => (
-                    <Grid p={2} key={show.id}>
-                        {show.name} : {contact[show.name]}
+        <Grid container justifyContent={'center'} alignItems={'center'} height={'80vh'}>
+            <Grid className='boxShadow' >
+                <Grid p={5}>
+                    {SinglePageData.map(show => (
+                        <Grid p={1} key={show.id}>
+                            {show.name} : {contact[show.name]}
+                        </Grid>
+                    ))}
+                    <Grid width={{xs:'100%',sm:'30%'}} container justifyContent={'space-between'} alignItems={'center'}>
+                        <Grid>
+                            <Link to={`/updateContact/${contact.id}`}>
+                                <Button variant={'contained'} color={'success'} >
+                                    <EditIcon />
+                                </Button>
+                            </Link>
+                        </Grid>
+                        <Grid my={1}>
+                            <Link to={'/'}>
+                                <Button variant="contained" color={'error'} onClick={() => handleDelete(contact.id)}>
+                                    <DeleteIcon />
+                                </Button>
+                            </Link>
+                        </Grid>
                     </Grid>
-                ))}
-                <Grid>
-                    <Link to={`/updateContact/${contact.id}`}>
-                        <Button variant={'contained'} color={'success'} >
-                            <EditIcon />
-                        </Button>
-                    </Link>
-                </Grid>
-                <Grid >
-                    <Link to={'/'}>
-                        <Button variant="contained" color={'error'} onClick={() => handleDelete(contact.id)}>
-                            <DeleteIcon />
-                        </Button>
-                    </Link>
                 </Grid>
             </Grid>
         </Grid>
