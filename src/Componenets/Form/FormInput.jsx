@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { addContact, updateContact } from '../../redux/slice/reducer';
+import { Grid, TextField, Button } from '@mui/material';
+import SaveRoundedIcon from '@mui/icons-material/SaveRounded';
+
 function FormInput() {
     const contacts = useSelector(state => state.reducer)
     console.log(contacts);
@@ -22,6 +25,7 @@ function FormInput() {
         } else if (stata === 'update') {
             dispatch(updateContact(form))
         }
+
         clearInput()
         navigate('/')
     }
@@ -42,21 +46,22 @@ function FormInput() {
         }
     }, [])
 
+  
     return (
-        <div>
-           <form onSubmit={handleSubmit}>
-              <div>
-                {FormInputs.map(FormInput =>(
-                    <input key={FormInput.id}  onChange={handleChange} required name={FormInput.name} value={form[FormInput.name]} />
-                ))}
-              </div>
-              <div>
-                <button type='submit'>
-                    Submit
-                </button>
-              </div>
-           </form>
-        </div>
+        <Grid>
+            <form onSubmit={handleSubmit}>
+                <Grid  container style={{flexDirection: 'column' }}  justifyContent={'space-around'} alignItems={'center'} height={300} mt={10} >
+                    {FormInputs.map(FormInput => (
+                        <TextField  my={2} variant="filled" key={FormInput.id}  onChange={handleChange} required name={FormInput.name} value={form[FormInput.name]} label={FormInput.name} />
+                    ))}
+                </Grid>
+                <Grid container justifyContent={'center'} alignItems={'center'} >
+                    <Button variant="outlined" endIcon={<SaveRoundedIcon/>}  type='submit'>
+                       submit
+                    </Button>
+                </Grid>
+            </form>
+        </Grid>
     );
 }
 
