@@ -1,0 +1,15 @@
+@media only screen and (max-width: 600px) {
+    .title {
+        display: none;
+    }
+}
+.title {
+   color: #fff;
+   font-size: 18px;
+}
+.input{
+    padding: 10px 5px;
+    border-radius: 5px;
+    outline: 0;
+    border: 1px solid gray;
+}

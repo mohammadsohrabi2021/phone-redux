@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import{ Button } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import { Grid } from '@mui/material';
-
+import './HomeHeader.css'
 function HomeHeader({setSearch,search}) {
     
     const handleSearch = e => {
@@ -11,10 +11,10 @@ function HomeHeader({setSearch,search}) {
     }
     return (
         <Grid py={3} container justifyContent={'space-around'} alignItems={'center'}bgcolor={'gray'} height={100}>
-            <h5 color={'light'}>Mohammad Sohrabi</h5>
-            <div style={{ textAlign: 'center' }}>
-                <input value={search} onChange={handleSearch} placeholder='Search New User...' />
-            </div>
+            <h5 className='title' >Mohammad Sohrabi</h5>
+            <Grid>
+                <input className='input' value={search} onChange={handleSearch} placeholder='Search New User...' />
+            </Grid>
             <Grid>
                 <Link  to={'/addContact'} >
                      <Button   variant="contained"  endIcon={<SendIcon />}>
