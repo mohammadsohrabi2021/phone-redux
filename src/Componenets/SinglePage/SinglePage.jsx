@@ -33,7 +33,7 @@ function SinglePage() {
                             {show.name} : {contact[show.name]}
                         </Grid>
                     ))}
-                    <Grid width={{xs:'100%',sm:'30%'}} container justifyContent={'space-between'} alignItems={'center'}>
+                    <Grid  width={'100%'} container justifyContent={'space-between'} alignItems={'center'}>
                         <Grid>
                             <Link to={`/updateContact/${contact.id}`}>
                                 <Button variant={'contained'} color={'success'} >

@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 
 
 const initialState = [
-    {id: 1, name: 'mohammad', number: '09186333667', country: 'iran'},
+    {id: 1,name: "mohammad", lastName: "sohrabi", phone: "09186333667", age: 21, country: "iran", city: "hamedan" ,state:false},
 ]
 
 export const ContactSlice = createSlice({
