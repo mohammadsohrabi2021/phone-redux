@@ -1,13 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import TableRow from './TableRow';
-function TableContact() {
-    const contacts =useSelector(state => state.reducer)
+
+function TableContact({search}) {
+    const contacts = useSelector(state => state.reducer)
+    
     return (
         <div>
-            {contacts.map(contact =>(
+           
+            {contacts.filter(todo => todo.name.toUpperCase().includes(search.toUpperCase())).map(contact => (
                 <div key={contact.id}>
-                    <TableRow contact={contact}/>
+                    <TableRow contact={contact} />
                 </div>
             ))}
         </div>
