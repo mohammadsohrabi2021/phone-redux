@@ -3,6 +3,13 @@ import rowTable from '../../Data/HomeData/rowTable';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/slice/reducer';
 import { Link } from 'react-router-dom';
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+import { Grid, Typography, Button } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+// import {DeleteIcon , EditIcon,VisibilityIcon } from '@mui/icons-material';
 
 function TableRow({ contact }) {
     const dispatch = useDispatch()
@@ -10,38 +17,40 @@ function TableRow({ contact }) {
     const handleDelete = id => {
         dispatch(deleteContact(id))
     }
+
     return (
-        <div>
+        <Grid container mt={3} py={2} justifyContent={{ md: 'center' }} alignItems={'center'} style={{ boxShadow: 'rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px' }}>
+            <Stack direction="row" spacing={2}>
+                <Avatar alt="avatar" src="/static/images/avatar/1.jpg" />
+            </Stack>
             {rowTable.map(row => (
-                <div key={row.id}>
-                    <div>
-                        {row.title}
-                    </div>
-                    <div>
-                        : {contact[row.title]}
-                    </div>
-                </div>
+                <Grid key={row.id} p={1}>
+                    <Typography>
+                        {row.name}  : {contact[row.name]}
+                    </Typography>
+                </Grid>
             ))}
-            <div>
-                <button onClick={() => handleDelete(contact.id)}>
-                    Delete
-                </button>
-            </div>
-            <div>
+
+            <Grid >
+                <Button variant="contained" color={'error'} onClick={() => handleDelete(contact.id)}>
+                    <DeleteIcon />
+                </Button>
+            </Grid>
+            <Grid m={1}>
                 <Link to={`/contacts/${contact.id}`}>
-                    <button>
-                        Info
-                    </button>
+                    <Button color={'info'} variant={'contained'}>
+                        <VisibilityIcon/>
+                    </Button>
                 </Link>
-            </div>
-            <div>
+            </Grid>
+            <Grid>
                 <Link to={`/updateContact/${contact.id}`}>
-                    <button>
-                        UPDATE
-                    </button>
+                    <Button variant={'contained'} color={'success'} >
+                        <EditIcon/>
+                    </Button>
                 </Link>
-            </div>
-        </div>
+            </Grid>
+        </Grid>
     );
 }
 

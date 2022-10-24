@@ -1,7 +1,8 @@
 const rowTable = [
-    {id: 1, title: 'id'},
-    {id: 2, title: 'name'},
-    {id: 3, title: 'number'},
-    {id: 4, title: 'country'},
+    {id: 1, name: 'id'},
+    {id: 2, name: 'name'},
+    {id: 3, name: 'number'},
+    {id: 4, name: 'country'},
 ]
 export default rowTable
+
