@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import SinglePageData from '../../Data/SinglePageData/SinglePageData';
+import { Grid } from '@mui/material';
 function SinglePage() {
     const contacts = useSelector(state => state.reducer)
     const { ContactId } = useParams()
@@ -13,13 +14,15 @@ function SinglePage() {
     }, [])
 
     return (
-        <div>
+
+        <Grid container p={5} width={'100%'} >
             {SinglePageData.map(show => (
-                <div key={show.id}>
+                <Grid p={2} key={show.id}>
                     {show.name} : {contact[show.name]}
-                </div>
+                </Grid>
             ))}
-        </div>
+        </Grid>
+
     );
 }
 
