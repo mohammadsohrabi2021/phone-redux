@@ -1,18 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import{ Button } from '@mui/material';
+import SendIcon from '@mui/icons-material/Send';
+import { Grid } from '@mui/material';
 
 function HomeHeader() {
     return (
-        <div>
+        <Grid container justifyContent={'space-around'} alignItems={'center'}>
             <h5>Mohammad Sohrabi</h5>
-            <div>
-                <Link to={'/addContact'}>
-                     <button>
-                        Add Contact
-                     </button>
+            <Grid>
+                <Link  to={'/addContact'} >
+                     <Button   variant="contained"  endIcon={<SendIcon />}>
+                        Add User
+                     </Button>
                 </Link>
-            </div>
-        </div>
+            </Grid>
+        </Grid>
     );
 }
 
